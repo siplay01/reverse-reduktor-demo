@@ -447,7 +447,8 @@
     document.documentElement.dataset.variant = v;
     document.body.innerHTML = `
       <button class="skip" data-skip>К содержанию</button>
-      <div class="topline"><div class="wrap"><span>${esc(S.operator)} · Барнаул · доставка по России</span>
+      <div class="topline"><div class="wrap"><span class="tl-info">${esc(S.operator)} · Барнаул · доставка по России</span>
+        <span class="vswitch" role="group" aria-label="Вариант дизайна"><span class="vs-l">Дизайн:</span><button data-variant="a" aria-pressed="${v === "a"}">А: графит</button><button data-variant="b" aria-pressed="${v === "b"}">Б: белый</button></span>
         <span class="tl-contacts"><a href="${tel}">${esc(S.phone)}</a><a href="mailto:${esc(S.email)}">${esc(S.email)}</a></span></div></div>
       <header class="site"><div class="wrap">
         <a class="brand" href="#/"><span class="mark" aria-hidden="true">РР</span><span class="brand-t"><b>${esc(S.name)}</b><span>${esc(S.tagline)}</span></span></a>
@@ -467,8 +468,7 @@
         <div class="f-bottom"><span>© ${new Date().getFullYear()} ${esc(S.operator)}, ИНН ${S.inn}, ОГРН ${S.ogrn}</span>
           <span><a href="#/legal">Политика ПДн</a><a href="#/legal/cookies">Cookie</a><a href="#/legal/seller">Сведения о продавце</a></span></div>
         <p class="f-demo">Демонстрационная версия сайта. Цены ${esc(S.priceNote)} носят справочный характер и не являются публичной офертой.</p>
-      </div></footer>
-      <div class="vswitch" role="group" aria-label="Вариант дизайна"><span>Дизайн</span><button data-variant="a" aria-pressed="${v === "a"}">А</button><button data-variant="b" aria-pressed="${v === "b"}">Б</button></div>`;
+      </div></footer>`;
     renderReqCount();
     if (!consent) cookieBanner(true); else loadMetrika();
   }

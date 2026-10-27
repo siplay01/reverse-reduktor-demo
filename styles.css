@@ -50,7 +50,7 @@ img { max-width: 100%; display: block; }
 .topline .wrap { display: flex; justify-content: space-between; gap: 12px; min-height: 34px; align-items: center; }
 .topline a { color: #fff; text-decoration: none; }
 .tl-contacts { display: flex; gap: 18px; }
-@media (max-width: 700px) { .topline .wrap > span:first-child, .tl-contacts a + a { display: none; } .topline .wrap { justify-content: center; } }
+@media (max-width: 860px) { .tl-info, .tl-contacts a + a { display: none; } }
 
 header.site { background: var(--head-bg); color: var(--head-text); border-bottom: 1px solid var(--line); position: sticky; top: 0; z-index: 20; }
 [data-variant="a"] header.site { border-bottom-color: transparent; }
@@ -77,7 +77,7 @@ nav.main a[aria-current="page"] { box-shadow: inset 0 -2px 0 var(--accent); }
   nav.main a { padding: 13px 8px; font-size: 17px; border-bottom: 1px solid color-mix(in srgb, var(--head-text) 10%, transparent); border-radius: 0; }
   nav.main a[aria-current="page"] { box-shadow: inset 3px 0 0 var(--accent); }
 }
-@media (max-width: 420px) { header.site .wrap { gap: 10px; } .brand { gap: 8px; } .mark { width: 34px; height: 34px; font-size: 13px; } .brand-t b { font-size: 15px; } .brand-t span { display: none; } .req-link { padding-left: 10px; padding-right: 10px; gap: 6px; } .vswitch > span { display: none; } .vswitch { padding-left: 4px; } }
+@media (max-width: 420px) { header.site .wrap { gap: 10px; } .brand { gap: 8px; } .mark { width: 34px; height: 34px; font-size: 13px; } .brand-t b { font-size: 15px; } .brand-t span { display: none; } .req-link { padding-left: 10px; padding-right: 10px; gap: 6px; } }
 @media (max-width: 374px) { .brand-t { display: none; } }
 
 main { padding: 24px 0 64px; min-height: 60vh; }
@@ -389,10 +389,13 @@ footer.site a:hover { text-decoration: underline; }
 @media (max-width: 480px) { .f-grid { grid-template-columns: minmax(0, 1fr); } }
 
 /* Floating: variant switch, cookie banner, toast */
-.vswitch { opacity: .92; position: fixed; left: 12px; bottom: 12px; z-index: 30; display: flex; align-items: center; gap: 4px; padding: 4px 4px 4px 10px; background: #1d2321; color: #eef2f1; border-radius: 99px; font-size: 12px; box-shadow: 0 4px 16px rgb(0 0 0 / .25); }
-.vswitch button { font: inherit; font-weight: 700; width: 30px; height: 30px; border-radius: 99px; border: 0; background: transparent; color: inherit; cursor: pointer; }
-.vswitch button[aria-pressed="true"] { background: #eef2f1; color: #111; }
-.has-cookie .vswitch { display: none; }
+.vswitch { display: inline-flex; align-items: center; gap: 4px; }
+.vs-l { margin-right: 2px; }
+.vswitch button { font: inherit; font-weight: 600; padding: 3px 10px; min-height: 26px; border-radius: 99px; border: 1px solid rgb(255 255 255 / .35); background: transparent; color: #fff; cursor: pointer; white-space: nowrap; }
+.vswitch button[aria-pressed="true"] { background: #fff; color: #111; border-color: #fff; }
+.tl-contacts a { white-space: nowrap; }
+@media (max-width: 380px) { .vs-l { display: none; } }
+@media (max-width: 350px) { .topline { font-size: 12px; } .vswitch button { padding: 3px 7px; } .topline .wrap { gap: 6px; } }
 .cookie { position: fixed; z-index: 40; right: 16px; bottom: 16px; max-width: 440px; background: var(--surface); color: var(--text); border: 1px solid var(--line); border-radius: var(--radius); padding: 18px; box-shadow: 0 12px 40px rgb(0 0 0 / .2); }
 .cookie p { margin: 0 0 14px; font-size: 14px; }
 .cookie-actions { display: flex; flex-wrap: wrap; gap: 8px; }
@@ -401,4 +404,4 @@ footer.site a:hover { text-decoration: underline; }
 .toast { position: fixed; left: 50%; bottom: 24px; transform: translateX(-50%); max-width: calc(100% - 32px); background: var(--text); color: var(--bg); padding: 12px 18px; border-radius: var(--radius-s); font-size: 15px; z-index: 60; box-shadow: 0 8px 24px rgb(0 0 0 / .25); }
 .has-cookie .toast { bottom: 190px; }
 @media (prefers-reduced-motion: no-preference) { .btn, .filters button, nav.main a, .card, .model-tile { transition: background-color .15s, border-color .15s, transform .1s; } }
-@media print { .vswitch, .cookie, .topline, nav.main, .menu-toggle, .req-link { display: none !important; } }
+@media print { .cookie, .topline, nav.main, .menu-toggle, .req-link { display: none !important; } }
